@@ -70,9 +70,9 @@ public class GameController {
                 }
             }
             if(vivos){
-                System.out.println("Você ganhou!");
+                System.out.println("Você ganhou!\n");
             }else{
-                System.out.println("Você perdeu!");
+                System.out.println("Você perdeu!\n");
             }
         }else {
             System.out.println("Você não criou um personagem\n");
