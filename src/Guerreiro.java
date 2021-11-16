@@ -10,7 +10,8 @@ public class Guerreiro extends Personagem{
     public void escolherArma() {
         Scanner s = new Scanner(System.in);
         while(true) {
-            System.out.println("Qual arma você prefere (Digite o numero): \n1 - Espada \n2 - Machado\n");
+            System.out.println("Qual arma você prefere (Digite o numero): \n1 - Espada \n2 - Machado");
+            System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
             int arma = s.nextInt();
             if (arma == 1 || arma == 2){
                 if(arma == 1){

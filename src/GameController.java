@@ -37,11 +37,30 @@ public class GameController {
                 """);
         boolean state = true;
         while (state){
-            System.out.println("\u001B[1mComeçar Jogo! - Digite 1\nCriar novo Personagem - Digite 2\nSair - Digite 3\n");
+            System.out.println("\u001B[1mComeçar Jogo! - Digite 1\nCriar novo Personagem - Digite 2\nSair - Digite 3");
+            System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
             int e = s.nextInt();
             switch (e) {
                 case 1 -> {
                     System.out.println("Vamos à batalha!!!");
+                    System.out.println("""
+                                            ^    ^
+                                           / \\  //\\
+                             |\\___/|      /   \\//  .\\
+                             /O  O  \\__  /    //  | \\ \\
+                            /     /  \\/_/    //   |  \\  \\
+                            @___@'    \\/_   //    |   \\   \\\s
+                               |       \\/_ //     |    \\    \\\s
+                               |        \\///      |     \\     \\\s
+                              _|_ /   )  //       |      \\     _\\
+                             '/,_ _ _/  ( ; -.    |    _ _\\.-~        .-~~~^-.
+                             ,-{        _      `-.|.-~-.           .~         `.
+                              '/\\      /                 ~-. _ .-~      .-~^-.  \\
+                                 `.   {            }                   /      \\  \\
+                               .----~-.\\        \\-'                 .~         \\  `. \\^-.
+                              ///.----..>    c   \\             _ -~             `.  ^-`   ^-_
+                                ///-._ _ _ _ _ _ _}^ - - - - ~                     ~--,   .-~
+                                                                                      /.-'""");
                     batalha(personagens, (Dragao) d);
                 }
                 case 2 -> criarPersonagem(personagens);
@@ -60,7 +79,7 @@ public class GameController {
             while (vivos && dragao.getPvd() > 0){
                 vivos = false;
                 for(Personagem personagem: personagens){
-                    personagem.atacar(dragao);
+                    escolherAcao(personagem);
                 }
                 dragao.atacarDrag(personagens);
                 for(Personagem personagem: personagens){
@@ -68,11 +87,17 @@ public class GameController {
                         vivos = true;
                     }
                 }
+                for(Personagem personagem: personagens){
+                    personagem.setDef(personagem.getRealDef());
+                }
             }
             if(vivos){
                 System.out.println("Você ganhou!\n");
             }else{
                 System.out.println("Você perdeu!\n");
+            }
+            for (int i = personagens.size(); i <= personagens.size(); i++){
+                personagens.remove(i);
             }
         }else {
             System.out.println("Você não criou um personagem\n");
@@ -82,7 +107,8 @@ public class GameController {
     private void criarPersonagem(List<Personagem> personagens){
             if (personagens.size() < 3){
             Scanner s = new Scanner(System.in);  // Create a Scanner object
-            System.out.println("Escolha seu tipo:\nGuerreiro - 1\nMago - 2\nArqueiro - 3\n");
+            System.out.println("Escolha seu tipo:\nGuerreiro - 1\nMago - 2\nArqueiro - 3");
+            System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
             int escolha = s.nextInt();
             switch (escolha){
                 case 1 ->{
@@ -107,5 +133,28 @@ public class GameController {
         }else{
                 System.out.println("Você ja tem 3 personagens");
             }
+    }//Criar personagem
+
+    private void escolherAcao(Personagem personagem){
+        Scanner s = new Scanner(System.in);
+        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
+        System.out.println("Escolha sua ação(Digite o numero): \nAtacar - 1\nDefender - 2");
+        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
+
+        boolean state = true;
+        while (state){
+            int acao = s.nextInt();
+            switch (acao){
+                case 1 -> {
+                    personagem.atacar((Dragao) d);
+                    state = false;
+                }
+                case 2 -> {
+                    personagem.defender();
+                    state = false;
+                }
+                default -> System.out.println("Desculpe não entendi!");
+            }
+        }
     }
 }

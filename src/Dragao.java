@@ -14,12 +14,12 @@ public class Dragao extends Personagem{
         Personagem i = personagens.get(rand.nextInt(personagens.size()));;
 
         int atq = getAtq();
-        int def = i.getDef();
+        double def = i.getDef();
         int pvd = i.getPvd();
 
         pvd -= (atq - def);
         i.setPvd(pvd);
-        System.out.println("Você deu " + (atq - def) + " de dano!");
+        System.out.println("Você tomou " + (atq - def) + " de dano!");
         System.out.println("Vida atual do " + i.getNome() + " é: " + i.getPvd());
     }
 

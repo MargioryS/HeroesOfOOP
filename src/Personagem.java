@@ -3,25 +3,40 @@ import java.util.Scanner;
 
 public abstract class Personagem {
     private int atq;
-    private int def;
+    private double def;
     private int pvd;
     private String nome;
+    private int realDef;
+
+    public int getRealDef() {
+        return realDef;
+    }
+
+    public void setRealDef(int realDef) {
+        this.realDef = realDef;
+    }
 
     public Personagem(int atq, int def, int pvd) {
         this.atq = atq;
         this.def = def;
         this.pvd = pvd;
+        this.realDef = def;
+    }
+
+    public void defender(){
+        System.out.println("Defendendo!");
+        def += (def * 0.10);
     }
 
     public void atacar(Dragao dragao) {
         int atq = getAtq();
         int pvd = dragao.getPvd();
-        int def = dragao.getDef();
+        double def = dragao.getDef();
 
         pvd -= (atq - def);
         dragao.setPvd(pvd);
         System.out.println("Você deu " + (atq - def) + " de dano!");
-        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd());
+        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
     }
 
     public void escolherArma(){};
@@ -33,6 +48,7 @@ public abstract class Personagem {
         Scanner s = new Scanner(System.in);
         setNome(s.nextLine());
         System.out.println("Seu nome é " + getNome());
+        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
     }
 
     public int getAtq() {
@@ -43,11 +59,11 @@ public abstract class Personagem {
         this.atq = atq;
     }
 
-    public int getDef() {
+    public double getDef() {
         return def;
     }
 
-    public void setDef(int def) {
+    public void setDef(double def) {
         this.def = def;
     }
 
