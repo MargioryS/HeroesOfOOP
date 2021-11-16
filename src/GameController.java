@@ -97,7 +97,7 @@ public class GameController {
                 System.out.println("Você perdeu!\n");
             }
             for (int i = personagens.size(); i <= personagens.size(); i++){
-                personagens.remove(i);
+                personagens.remove(i-1);
             }
         }else {
             System.out.println("Você não criou um personagem\n");
