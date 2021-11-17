@@ -6,15 +6,7 @@ public abstract class Personagem {
     private double def;
     private int pvd;
     private String nome;
-    private int realDef;
-
-    public int getRealDef() {
-        return realDef;
-    }
-
-    public void setRealDef(int realDef) {
-        this.realDef = realDef;
-    }
+    private double realDef;
 
     public Personagem(int atq, int def, int pvd) {
         this.atq = atq;
@@ -83,4 +75,11 @@ public abstract class Personagem {
         this.nome = nome;
     }
 
+    public double getRealDef() {
+        return realDef;
+    }
+
+    public void setRealDef(double realDef) {
+        this.realDef = realDef;
+    }
 }
