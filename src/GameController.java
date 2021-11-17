@@ -73,11 +73,35 @@ public class GameController {
     private void batalha(List<Personagem> personagens, Dragao dragao) {
         if (personagens.size() > 0){
             boolean vivos = true;
+            Turno:
             while (vivos && dragao.getPvd() > 0){
                 vivos = false;
                 for(Personagem personagem: personagens){
+                    Scanner s = new Scanner(System.in);
+                    System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
+                    System.out.println("Vez de " + personagem.getNome());
+                    System.out.println("\nEscolha sua ação(Digite o numero): \nAtacar - 1\nDefender - 2\nSair da batalha - 3");
+                    System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
 
-                    escolherAcao(personagem);
+                    boolean state = true;
+                    while (state){
+                        int acao = s.nextInt();
+                        switch (acao){
+                            case 1 -> {
+                                personagem.atacar((Dragao) d);
+                                state = false;
+                            }
+                            case 2 -> {
+                                personagem.defender();
+                                state = false;
+                            }
+                            case 3 -> {
+                                state = false;
+                                break Turno;
+                            }
+                            default -> System.out.println("Desculpe não entendi!");
+                        }
+                    }
                 }
                 dragao.atacarDrag(personagens);
                 for(Personagem personagem: personagens){
@@ -155,26 +179,6 @@ public class GameController {
     }//Criar personagem
 
     private void escolherAcao(Personagem personagem){
-        Scanner s = new Scanner(System.in);
-        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
-        System.out.println("Vez de " + personagem.getNome());
-        System.out.println("Escolha sua ação(Digite o numero): \nAtacar - 1\nDefender - 2");
-        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
 
-        boolean state = true;
-        while (state){
-            int acao = s.nextInt();
-            switch (acao){
-                case 1 -> {
-                    personagem.atacar((Dragao) d);
-                    state = false;
-                }
-                case 2 -> {
-                    personagem.defender();
-                    state = false;
-                }
-                default -> System.out.println("Desculpe não entendi!");
-            }
-        }
     }
 }
