@@ -23,11 +23,6 @@ public class Dragao extends Personagem{
         System.out.println("Vida atual do " + i.getNome() + " é: " + i.getPvd());
     }
 
-    @Override
-    public void escolherNome() {
-        System.out.println(getNome());
-    }
-
     public String getNome() {
         return nome;
     }

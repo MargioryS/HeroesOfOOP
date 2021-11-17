@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Guerreiro extends Personagem{
-
+    private Arma a;
     public Guerreiro() {
         super(30 , 20 , 180);
     }
@@ -15,16 +15,18 @@ public class Guerreiro extends Personagem{
             int arma = s.nextInt();
             if (arma == 1 || arma == 2){
                 if(arma == 1){
-                    Arma a = new Arma(10,15,"Espada");
+                    a = new Arma(10,15,"Espada");
                     setAtq(getAtq()+a.getAtqArma());
                     setDef(getDef()+a.getDefArma());
+                    setRealDef(getRealDef()+a.getDefArma());
                     System.out.println("Você escolheu a " + a.getNome() + " e ganhou " + a.getAtqArma() + " de ATQ e " + a.getDefArma() + " de DEF!\n");
                     System.out.println("Atributos: \n" + getAtq()+" ATK \n" + getDef() + " DEF\n" + getNome() + "\n");
                     break;
                 }else{
-                    Arma a = new Arma(17,8,"Machado");
+                    a = new Arma(17,8,"Machado");
                     setAtq(getAtq()+a.getAtqArma());
                     setDef(getDef()+a.getDefArma());
+                    setRealDef(getRealDef()+a.getDefArma());
                     System.out.println("Você escolheu a " + a.getNome() + " e ganhou " + a.getAtqArma() + " de ATQ e " + a.getDefArma() + " de DEF!\n");
                     System.out.println("Atributos: \n" + getAtq()+" ATK \n" + getDef() + " DEF\n" + getNome() + "\n");
                     break;
@@ -33,5 +35,15 @@ public class Guerreiro extends Personagem{
                 System.out.println("Escolha uma opção valida: " + arma);
             }
         }
+    }
+    public void atacar(Dragao dragao) {
+        int atq = getAtq();
+        int pvd = dragao.getPvd();
+        double def = dragao.getDef();
+
+        pvd -= (atq - def);
+        dragao.setPvd(pvd);
+        System.out.println("Você deu " + (atq - def) + " de dano com " + a.getNome());
+        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
     }
 }
