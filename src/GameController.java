@@ -133,6 +133,7 @@ public class GameController {
             for (int i = personagens.size(); i <= personagens.size(); i++){
                 personagens.remove(i-1);
             }
+            vivos = false;
         }else {
             System.out.println("Você não criou um personagem\n");
         }
