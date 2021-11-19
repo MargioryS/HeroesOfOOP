@@ -27,9 +27,10 @@ public class Dragao extends Personagem{
     }
 
     @Override
-    public void escolherArma() {
+    public void atacar(Dragao dragao) {}
 
-    }
+    @Override
+    public void escolherArma() {}
 
     public String getNome() {
         return nome;

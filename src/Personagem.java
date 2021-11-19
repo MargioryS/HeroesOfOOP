@@ -20,16 +20,7 @@ public abstract class Personagem {
         def += (def * 0.10);
     }
 
-    public void atacar(Dragao dragao) {
-        int atq = getAtq();
-        int pvd = dragao.getPvd();
-        double def = dragao.getDef();
-
-        pvd -= (atq - def);
-        dragao.setPvd(pvd);
-        System.out.println("Você deu " + (atq - def) + " de dano!");
-        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
-    }
+    public abstract void atacar(Dragao dragao);
 
     public abstract void escolherArma();
 
