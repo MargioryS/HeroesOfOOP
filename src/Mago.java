@@ -33,7 +33,7 @@ public class Mago extends Personagem{
                     break;
                 }
             }else{
-                System.out.println("Escolha uma opção valida: " + arma);
+                System.out.println("Escolha uma opçao valida: " + arma);
             }
         }
     }//fim escolher arma
@@ -45,7 +45,7 @@ public class Mago extends Personagem{
 
         pvd -= (atq - def);
         dragao.setPvd(pvd);
-        System.out.println("Você deu " + (atq - def) + " de dano com " + a.getNome());
-        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
+        System.out.println("Voce deu " + (atq - def) + " de dano com " + a.getNome());
+        System.out.println("Vida atual do " + dragao.getNome() + " e: " + dragao.getPvd() + "\n");
     }
 }
