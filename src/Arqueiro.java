@@ -10,7 +10,7 @@ public class Arqueiro extends Personagem{
     public void escolherArma() {
         Scanner s = new Scanner(System.in);
         while(true) {
-            System.out.println("Qual arma você prefere (Digite o numero): \n1 - Arco Longo \n2 - Balestra");
+            System.out.println("Qual arma voce prefere (Digite o numero): \n1 - Arco Longo \n2 - Balestra");
             System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
             int arma = s.nextInt();
             if (arma == 1 || arma == 2){
@@ -19,7 +19,7 @@ public class Arqueiro extends Personagem{
                     setAtq(getAtq()+a.getAtqArma());
                     setDef(getDef()+a.getDefArma());
                     setRealDef(getRealDef()+a.getDefArma());
-                    System.out.println("Você escolheu a " + a.getNome() + " e ganhou " + a.getAtqArma() + " de ATQ e " + a.getDefArma() + " de DEF!\n");
+                    System.out.println("Voce escolheu a " + a.getNome() + " e ganhou " + a.getAtqArma() + " de ATQ e " + a.getDefArma() + " de DEF!\n");
                     System.out.println("Total Stats: \n" + getAtq()+" ATK \n" + getDef() + " DEF\n" + getNome() + "\n");
                     break;
                 }else{
@@ -44,6 +44,6 @@ public class Arqueiro extends Personagem{
         pvd -= (atq - def);
         dragao.setPvd(pvd);
         System.out.println("Você deu " + (atq - def) + " de dano com " + a.getNome());
-        System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
+        System.out.println("Vida atual do " + dragao.getNome() + " e: " + dragao.getPvd() + "\n");
     }
 }

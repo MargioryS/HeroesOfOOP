@@ -8,7 +8,6 @@ public class Dragao extends Personagem{
         this.nome = "Dragão";
     }
 
-    @Override
     public void atacarDrag(List<Personagem> personagens){
         Random rand = new Random();
         Personagem i = personagens.get(rand.nextInt(personagens.size()));;
@@ -16,11 +15,20 @@ public class Dragao extends Personagem{
         int atq = getAtq();
         double def = i.getDef();
         int pvd = i.getPvd();
-
         pvd -= (atq - def);
-        i.setPvd(pvd);
-        System.out.println("Você tomou " + (atq - def) + " de dano!");
-        System.out.println("Vida atual do " + i.getNome() + " é: " + i.getPvd());
+        if((atq - def) >= 0) {
+            i.setPvd(pvd);
+            System.out.println("Você tomou " + (atq - def) + " de dano!");
+            System.out.println("Vida atual do " + i.getNome() + " é: " + i.getPvd());
+        }else{
+            System.out.println("Você tomou 0 de dano!");
+            System.out.println("Vida atual do " + i.getNome() + " é: " + i.getPvd());
+        }
+    }
+
+    @Override
+    public void escolherArma() {
+
     }
 
     public String getNome() {

@@ -31,9 +31,7 @@ public abstract class Personagem {
         System.out.println("Vida atual do " + dragao.getNome() + " é: " + dragao.getPvd() + "\n");
     }
 
-    public void escolherArma(){};
-
-    public void atacarDrag(List<Personagem> personagens){};
+    public abstract void escolherArma();
 
     public void escolherNome() {
         System.out.println("Me diga seu nome bravo Heroi: ");
